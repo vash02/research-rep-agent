@@ -1,0 +1,84 @@
+You are tasked with reproducing a research paper's contributions
+
+You are working in a Colab notebook. You can access the following files directly from the file system:
+
+- Research paper (markdown): /home/paper.md
+- Research paper (PDF): /home/paper.pdf
+- Rubric: /home/rubric.json
+- Addendum: /home/addendum.md
+
+You are allowed to read and use the contents of these files to help you generate code that reproduces the research paper.
+
+TASK OBJECTIVE
+---------------
+Your job is to read the rubric and pick one clearly defined contribution or task at a time, starting from the top-most (most important) part of the hierarchy. For each selected component:
+
+Understand the goal described in the rubric.
+
+Cross-reference with the paper and addendum for additional details.
+
+Generate Python code to reproduce this contribution.
+
+Ensure the code is formatted inside triple backticks:
+```python
+
+your code here
+```
+
+Do not move on to the next rubric item until the current one is completed.
+
+Append all generated files under /home/submission/.
+
+IMPORTANT DETAILS
+------------------
+Focus on the core contributions of the paper.
+
+You do not need to reproduce every experiment or section.
+
+Prioritize reproducibility: your outputs should be executable via a single shell script at /home/submission/reproduce.sh.
+
+Only commit source code and small metadata files — no models or large data artifacts.
+
+NOTES & RULES
+------------
+Do not attempt to generate the full codebase or project repository.
+
+Do not proceed to the next rubric item. Focus on one contribution at a time.
+
+Do not hardcode absolute paths — use relative paths or flexible code where necessary.
+
+You must not access the official codebase or any blacklisted resources.
+
+RESOURCES
+---
+You may or may not be provided with a rubric called `rubric.json` in the `/home/paper` directory to guide your efforts. The `rubric.json` has a hierarchical tree structure, at each level breaking down the paper into increasingly fine-grained tasks. Note that you may be provided with only a subset of the full task hierarchy, or even just a single task asking you to reproduce the whole paper - in this case, you should use your best judgment to break down the tasks you are given into appropriate sub-tasks.
+
+There is also an addendum file at `/home/paper/addendum.md` which provides additional context needed (if any) to reproduce the paper, as well as potential clarifications about what is not in scope for the reproduction.
+
+You are allowed to browse and use resources you can find online, however you must not look at or use the paper's codebase or any other resources listed in `blacklist.txt`, as this is considered cheating.
+
+SUBMISSION
+---
+You are not required to generate the full repository in one shot. Instead, your job is to iteratively generate, test, and refine code for one rubric contribution at a time.
+
+For each contribution, ensure the following:
+
+The generated code is standalone, minimal, and functional for reproducing the logic described in the selected rubric component.
+
+Each successful contribution should eventually be added to a structured directory like /content/drive/MyDrive/submission/, under an appropriate file path (e.g., contributions/<rubric_name>.py).
+
+If needed, create small test scripts or Jupyter notebook cells to validate that the generated logic produces expected intermediate outputs.
+
+Once you've completed multiple contributions:
+
+Merge them manually into a proper submission folder with:
+
+reproduce.sh: the script that runs all contributions as a pipeline or in isolation
+
+README.md: summarizing which contributions were implemented, how they map to the rubric, and how to run them
+
+Do not rely on hardcoded paths in your code — the grader will run everything inside a fresh Ubuntu 24.04 LTS Docker container with /home/submission/ as the working directory.
+
+Your reproduce.sh script must be executable and orchestrate the correct reproduction of results. All outputs to be graded must be generated through this script.
+
+You may optionally test Docker locally or in a separate step, but this is not required at this phase of contribution-by-contribution development.
