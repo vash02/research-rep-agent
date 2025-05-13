@@ -1,0 +1,30 @@
+project:
+  name: "Agent Research Reproduction"
+  description: "Paperbench research reporduction"
+  homepage: https://github.com/vash02/research-rep-agent
+  authors:
+    - vaibshar@iu.edu
+  tags:
+    - paperbench
+    - gsoc25
+
+workspace:
+  resources:
+    min_cpu: 4
+    min_mem: 8000
+    min_gpu: 0
+    gpu_mem: 0
+  model_collection: []
+    
+  data_collection: []
+
+additional_dependencies:
+  modules: []
+  conda: 
+    - python=3.10 
+    - pip
+  pip: 
+    - inspect-ai 
+    - transformers 
+    - accelerate 
+    - tiktoken
