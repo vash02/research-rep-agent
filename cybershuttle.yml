@@ -11,7 +11,7 @@ project:
 workspace:
   resources:
     min_cpu: 4
-    min_mem: 8000
+    min_mem: 16000
     min_gpu: 0
     gpu_mem: 0
   model_collection: []
